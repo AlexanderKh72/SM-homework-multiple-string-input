@@ -35,5 +35,8 @@ int main()
     for (size_t i = 0; i < sz; ++i)
         std::cout << strings[i] << std::endl;
 
+    for (size_t i = 0; i < sz; ++i)
+        delete[] strings[i];
+    delete[] strings;
     return 0;
 }
