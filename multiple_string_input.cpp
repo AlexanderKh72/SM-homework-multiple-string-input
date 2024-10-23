@@ -10,10 +10,10 @@ int main()
 {
     char** strings;
     char buffer[MAX_LEN] = {};
-    char** temp = nullptr;
+    char** temp;
+    size_t cp{ CP_INIT }, sz{ 0 }; // capacity, size
 
     strings = new char* [CP_INIT];
-    size_t cp{ CP_INIT }, sz{ 0 }; // capacity, size
 
     std::cout << "*** - end of input\nmax string length = " << MAX_LEN << std::endl;
     std::cin >> buffer;
@@ -27,9 +27,8 @@ int main()
             delete[] strings;
             strings = temp;
             cp *= CP_MLT;
-            delete[] temp;
         }
-        strings[sz] = new char[strlen(buffer)];
+        strings[sz] = new char[strlen(buffer) + 1];
         strcpy(strings[sz], buffer);
     }
 
